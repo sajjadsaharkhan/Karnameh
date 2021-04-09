@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{713B3F4C-5A43-4EA8-9665-E7BCA1DDA588}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Karnameh</RootNamespace>
+    <AssemblyName>Karnameh</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.4.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Report.Check.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Design, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Report.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2014.2.2004.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Frm_Add_Class.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Frm_Add_Class.Designer.cs">
+      <DependentUpon>Frm_Add_Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Frm_Classes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Frm_Classes.Designer.cs">
+      <DependentUpon>Frm_Classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_ClassifyStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_ClassifyStudent.Designer.cs">
+      <DependentUpon>Frm_ClassifyStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_ClassifyStudent_Action.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_ClassifyStudent_Action.Designer.cs">
+      <DependentUpon>Frm_ClassifyStudent_Action.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_SttudentClaseesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassifyStudent\Frm_SttudentClaseesList.Designer.cs">
+      <DependentUpon>Frm_SttudentClaseesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertMarks\Frm_Add_Marks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertMarks\Frm_Add_Marks.Designer.cs">
+      <DependentUpon>Frm_Add_Marks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertMarks\Frm_ShowClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertMarks\Frm_ShowClasses.Designer.cs">
+      <DependentUpon>Frm_ShowClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lessons\Frm_Add_Lessons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lessons\Frm_Add_Lessons.Designer.cs">
+      <DependentUpon>Frm_Add_Lessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lessons\Frm_Lessons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lessons\Frm_Lessons.Designer.cs">
+      <DependentUpon>Frm_Lessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Frm_Add_Managers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Frm_Add_Managers.Designer.cs">
+      <DependentUpon>Frm_Add_Managers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Frm_Managers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Frm_Managers.Designer.cs">
+      <DependentUpon>Frm_Managers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moavenin\Frm_Add_Movavenin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Moavenin\Frm_Add_Movavenin.Designer.cs">
+      <DependentUpon>Frm_Add_Movavenin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moavenin\Frm_Moavenin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Moavenin\Frm_Moavenin.Designer.cs">
+      <DependentUpon>Frm_Moavenin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FillStudentClasses_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FillTeachersNoClassWhitOwn_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FillTechersNoClass_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Classes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Karnameh.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Lessons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Managers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Marks.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_MoaveninEjraei.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Payeh.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Schools.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_StudentClasses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Students.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Teachers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_TosifAmalkard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Years.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_Classes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_Lessons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_Managers_SchoolsLess.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_MovanenEjraeiSchoolsLess.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_Schools.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_Teachers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\viw_TeachersName.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payeh\Frm_Add_Payeh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payeh\Frm_Add_Payeh.Designer.cs">
+      <DependentUpon>Frm_Add_Payeh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payeh\Frm_Payeh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payeh\Frm_Payeh.Designer.cs">
+      <DependentUpon>Frm_Payeh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schools\Frm_Add_Schools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schools\Frm_Add_Schools.Designer.cs">
+      <DependentUpon>Frm_Add_Schools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schools\Frm_Schools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schools\Frm_Schools.Designer.cs">
+      <DependentUpon>Frm_Schools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students\Frm_Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students\Frm_Student.Designer.cs">
+      <DependentUpon>Frm_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teachers\Frm_Add_Teachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\Frm_Add_Teachers.Designer.cs">
+      <DependentUpon>Frm_Add_Teachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teachers\Frm_Teachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teachers\Frm_Teachers.Designer.cs">
+      <DependentUpon>Frm_Teachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TosifAmarkard\Frm_Add_TosifAmalkard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TosifAmarkard\Frm_Add_TosifAmalkard.Designer.cs">
+      <DependentUpon>Frm_Add_TosifAmalkard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TosifAmarkard\Frm_TosifAmalkard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TosifAmarkard\Frm_TosifAmalkard.Designer.cs">
+      <DependentUpon>Frm_TosifAmalkard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Years\Frm_Add_Years.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Years\Frm_Add_Years.Designer.cs">
+      <DependentUpon>Frm_Add_Years.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Years\Frm_Years.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Years\Frm_Years.Designer.cs">
+      <DependentUpon>Frm_Years.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Classes\Frm_Add_Class.resx">
+      <DependentUpon>Frm_Add_Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\Frm_Classes.resx">
+      <DependentUpon>Frm_Classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassifyStudent\Frm_ClassifyStudent.resx">
+      <DependentUpon>Frm_ClassifyStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassifyStudent\Frm_ClassifyStudent_Action.resx">
+      <DependentUpon>Frm_ClassifyStudent_Action.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassifyStudent\Frm_SttudentClaseesList.resx">
+      <DependentUpon>Frm_SttudentClaseesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Main.resx">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertMarks\Frm_Add_Marks.resx">
+      <DependentUpon>Frm_Add_Marks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertMarks\Frm_ShowClasses.resx">
+      <DependentUpon>Frm_ShowClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lessons\Frm_Add_Lessons.resx">
+      <DependentUpon>Frm_Add_Lessons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lessons\Frm_Lessons.resx">
+      <DependentUpon>Frm_Lessons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Frm_Add_Managers.resx">
+      <DependentUpon>Frm_Add_Managers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Frm_Managers.resx">
+      <DependentUpon>Frm_Managers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moavenin\Frm_Add_Movavenin.resx">
+      <DependentUpon>Frm_Add_Movavenin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moavenin\Frm_Moavenin.resx">
+      <DependentUpon>Frm_Moavenin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payeh\Frm_Add_Payeh.resx">
+      <DependentUpon>Frm_Add_Payeh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payeh\Frm_Payeh.resx">
+      <DependentUpon>Frm_Payeh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Schools\Frm_Add_Schools.resx">
+      <DependentUpon>Frm_Add_Schools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schools\Frm_Schools.resx">
+      <DependentUpon>Frm_Schools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students\Frm_Student.resx">
+      <DependentUpon>Frm_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\Frm_Add_Teachers.resx">
+      <DependentUpon>Frm_Add_Teachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\Frm_Teachers.resx">
+      <DependentUpon>Frm_Teachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TosifAmarkard\Frm_Add_TosifAmalkard.resx">
+      <DependentUpon>Frm_Add_TosifAmalkard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TosifAmarkard\Frm_TosifAmalkard.resx">
+      <DependentUpon>Frm_TosifAmalkard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Years\Frm_Add_Years.resx">
+      <DependentUpon>Frm_Add_Years.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Years\Frm_Years.resx">
+      <DependentUpon>Frm_Years.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Classes.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Lessons.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Managers.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_MoaveninEjraei.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Payeh.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Schools.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Students.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Teachers.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_TosifAmalkard.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.tbl_Years.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_Classes.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_Lessons.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_Managers_SchoolsLess.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_MovanenEjraeiSchoolsLess.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_Schools.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_Teachers.datasource" />
+    <None Include="Properties\DataSources\Karnameh.Models.viw_TeachersName.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\PNG\add-1-icon.png" />
+    <None Include="bin\Debug\PNG\2-Hot-Printer-icon.png" />
+    <None Include="bin\Debug\PNG\arrow-left-icon.png" />
+    <None Include="bin\Debug\PNG\Devices-media-floppy-icon.png" />
+    <None Include="bin\Debug\PNG\Exit-icon.png" />
+    <None Include="bin\Debug\PNG\Places-trash-empty-icon.png" />
+    <None Include="bin\Debug\PNG\fa.png" />
+    <None Include="bin\Debug\PNG\search-b-icon.png" />
+    <None Include="Resources\WizardOffice2007Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\PNG\user.png" />
+    <None Include="bin\Debug\PNG\Pencil-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\PNG\New Icons\Student.png" />
+    <None Include="bin\Debug\PNG\New Icons\Classify.png" />
+    <None Include="bin\Debug\PNG\New Icons\Years.gif" />
+    <None Include="bin\Debug\PNG\New Icons\Grade.png" />
+    <None Include="bin\Debug\PNG\New Icons\Lessons.png" />
+    <None Include="bin\Debug\PNG\New Icons\TosifAmalkard.png" />
+    <None Include="bin\Debug\PNG\New Icons\Manager.png" />
+    <None Include="bin\Debug\PNG\New Icons\MoavenEjraei.png" />
+    <None Include="bin\Debug\PNG\New Icons\Teachers.png" />
+    <None Include="bin\Debug\PNG\file-doc.png" />
+    <None Include="bin\Debug\PNG\ok.png" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

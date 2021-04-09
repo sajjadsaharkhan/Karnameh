@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00e6e9296a1041b5b626715c75560400" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="KarnameDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Lessons" Width="1.5" PointX="15.75" PointY="5.5" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_StudentClasses" Width="1.5" PointX="15" PointY="8.5" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Years" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_Lessons" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_TeachersName" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Years" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Managers" Width="1.5" PointX="3.75" PointY="11.375" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_MoaveninEjraei" Width="1.5" PointX="3.75" PointY="7.375" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_Schools" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_Managers_SchoolsLess" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_MovanenEjraeiSchoolsLess" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Schools" Width="1.5" PointX="6" PointY="9.125" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Schools_tbl_Managers" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Schools_tbl_MoaveninEjraei" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_TosifAmalkard" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_Classes" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Teachers" Width="1.5" PointX="8.375" PointY="9.25" />
+        <EntityTypeShape EntityType="KarnameDBModel.viw_Teachers" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Teachers_tbl_Schools" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Classes" Width="1.5" PointX="10.625" PointY="12.25" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Payeh" Width="1.5" PointX="8.25" PointY="5.375" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Classes_tbl_Payeh" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Classes_tbl_Schools" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Classes_tbl_Teachers" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Classes" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Lessons_tbl_Payeh" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Payeh_tbl_TosifAmalkard" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Teachers_tbl_Payeh" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Students" Width="1.5" PointX="12.875" PointY="12.375" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Students_tbl_Classes" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Students_tbl_Payeh" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Students_tbl_Schools" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Students" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Marks" Width="1.5" PointX="20.25" PointY="8.5" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Marks_tbl_Lessons" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Marks_tbl_Students" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Marks_tbl_TosifAmalkard" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Marks_tbl_Years" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Karnameh" Width="1.5" PointX="18" PointY="8" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Karnameh_tbl_MoaveninEjraei" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Karnameh_tbl_Students" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Karnameh_tbl_Years" />
+        <AssociationConnector Association="KarnameDBModel.FK_tbl_Marks_tbl_Karnameh" />
+        <EntityTypeShape EntityType="KarnameDBModel.tbl_Users" Width="1.5" PointX="13.125" PointY="1.125" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

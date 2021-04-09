@@ -1,0 +1,1945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KarnameDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Classes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Teachers_PersonalCode_FK" Type="bigint" />
+          <Property Name="School_id_FK" Type="bigint" />
+          <Property Name="Payeh_id_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Karnameh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id_FK" Type="nvarchar" MaxLength="10" />
+          <Property Name="Avarage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Years_id_FK" Type="int" />
+          <Property Name="MoavenEjraei_id_FK" Type="bigint" />
+          <Property Name="DateSabt" Type="nchar" MaxLength="10" />
+          <Property Name="IsRespect" Type="bit" />
+          <Property Name="Nobat" Type="int" />
+          <Property Name="IsOk" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Lessons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payeh_id_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Managers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_Marks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payeh_id_FK" Type="int" />
+          <Property Name="Student_id_FK" Type="nvarchar" MaxLength="10" />
+          <Property Name="Lesson_id_FK" Type="bigint" />
+          <Property Name="Years_id_FK" Type="int" />
+          <Property Name="Mark" Type="float" />
+          <Property Name="TosifAmalkard_id_FK" Type="int" />
+          <Property Name="Karnameh_id_FK" Type="bigint" />
+          <Property Name="Nobat" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_MoaveninEjraei">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nchar" MaxLength="10" />
+          <Property Name="BirthDate" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_Payeh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="TosifAmalkard_id_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Schools">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manager_PersonalCode_FK" Type="bigint" />
+          <Property Name="MoavenEjraei_PersonalCode_FK" Type="bigint" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_StudentClasses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id_FK" Type="nvarchar" MaxLength="10" />
+          <Property Name="Class_id_FK" Type="bigint" />
+          <Property Name="Years_id_K" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Students">
+          <Key>
+            <PropertyRef Name="CodeMelli" />
+          </Key>
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="nchar" MaxLength="10" />
+          <Property Name="Class_id_FK" Type="bigint" />
+          <Property Name="Schools_id_FK" Type="bigint" />
+          <Property Name="Payeh_id_FK" Type="int" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Teachers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payeh_id_FK" Type="int" />
+          <Property Name="Schools_id_FK" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_TosifAmalkard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaxMark" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Years">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Years" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_Classes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_Classes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Teachers_PersonalCode_FK" Type="bigint" />
+          <Property Name="School_id_FK" Type="bigint" />
+          <Property Name="SchoolsName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeachersName" Type="nvarchar" MaxLength="101" />
+          <Property Name="PayehName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_Lessons' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_Lessons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payeh_id_FK" Type="int" />
+          <Property Name="PayehName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayehStatus" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_Managers_SchoolsLess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_Managers_SchoolsLess">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_MovanenEjraeiSchoolsLess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_MovanenEjraeiSchoolsLess">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_Schools' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_Schools">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manager_PersonalCode_FK" Type="bigint" />
+          <Property Name="MoavenEjraei_PersonalCode_FK" Type="bigint" />
+          <Property Name="MoavenFullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="ManagerFullName" Type="nvarchar" MaxLength="101" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_Teachers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_Teachers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payeh_id_FK" Type="int" />
+          <Property Name="Schools_id_FK" Type="bigint" />
+          <Property Name="PayehName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolsName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KarnameDB.dbo.viw_TeachersName' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viw_TeachersName">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" />
+          <Property Name="PersonalCode" Type="bigint" Nullable="false" />
+          <Property Name="Schools_id_FK" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_tbl_Classes_tbl_Payeh">
+          <End Role="tbl_Payeh" Type="Self.tbl_Payeh" Multiplicity="0..1" />
+          <End Role="tbl_Classes" Type="Self.tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Classes_tbl_Schools">
+          <End Role="tbl_Schools" Type="Self.tbl_Schools" Multiplicity="0..1" />
+          <End Role="tbl_Classes" Type="Self.tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="School_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Classes_tbl_Teachers">
+          <End Role="tbl_Teachers" Type="Self.tbl_Teachers" Multiplicity="0..1" />
+          <End Role="tbl_Classes" Type="Self.tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Teachers">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="Teachers_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Karnameh_tbl_MoaveninEjraei">
+          <End Role="tbl_MoaveninEjraei" Type="Self.tbl_MoaveninEjraei" Multiplicity="0..1" />
+          <End Role="tbl_Karnameh" Type="Self.tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MoaveninEjraei">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="MoavenEjraei_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Karnameh_tbl_Students">
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="0..1" />
+          <End Role="tbl_Karnameh" Type="Self.tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Karnameh_tbl_Years">
+          <End Role="tbl_Years" Type="Self.tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_Karnameh" Type="Self.tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="Years_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Lessons_tbl_Payeh">
+          <End Role="tbl_Payeh" Type="Self.tbl_Payeh" Multiplicity="0..1" />
+          <End Role="tbl_Lessons" Type="Self.tbl_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Lessons">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Karnameh">
+          <End Role="tbl_Karnameh" Type="Self.tbl_Karnameh" Multiplicity="0..1" />
+          <End Role="tbl_Marks" Type="Self.tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Karnameh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Karnameh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Lessons">
+          <End Role="tbl_Lessons" Type="Self.tbl_Lessons" Multiplicity="0..1" />
+          <End Role="tbl_Marks" Type="Self.tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Lessons">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Lesson_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Students">
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="0..1" />
+          <End Role="tbl_Marks" Type="Self.tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_TosifAmalkard">
+          <End Role="tbl_TosifAmalkard" Type="Self.tbl_TosifAmalkard" Multiplicity="0..1" />
+          <End Role="tbl_Marks" Type="Self.tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TosifAmalkard">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="TosifAmalkard_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Years">
+          <End Role="tbl_Years" Type="Self.tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_Marks" Type="Self.tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Years_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payeh_tbl_TosifAmalkard">
+          <End Role="tbl_TosifAmalkard" Type="Self.tbl_TosifAmalkard" Multiplicity="0..1" />
+          <End Role="tbl_Payeh" Type="Self.tbl_Payeh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TosifAmalkard">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Payeh">
+              <PropertyRef Name="TosifAmalkard_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Schools_tbl_Managers">
+          <End Role="tbl_Managers" Type="Self.tbl_Managers" Multiplicity="0..1" />
+          <End Role="tbl_Schools" Type="Self.tbl_Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Managers">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Schools">
+              <PropertyRef Name="Manager_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Schools_tbl_MoaveninEjraei">
+          <End Role="tbl_MoaveninEjraei" Type="Self.tbl_MoaveninEjraei" Multiplicity="0..1" />
+          <End Role="tbl_Schools" Type="Self.tbl_Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MoaveninEjraei">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Schools">
+              <PropertyRef Name="MoavenEjraei_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_StudentClasses_tbl_Classes">
+          <End Role="tbl_Classes" Type="Self.tbl_Classes" Multiplicity="0..1" />
+          <End Role="tbl_StudentClasses" Type="Self.tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Classes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Class_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_StudentClasses_tbl_Students">
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="0..1" />
+          <End Role="tbl_StudentClasses" Type="Self.tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_StudentClasses_tbl_Years">
+          <End Role="tbl_Years" Type="Self.tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_StudentClasses" Type="Self.tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Years_id_K" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Students_tbl_Classes">
+          <End Role="tbl_Classes" Type="Self.tbl_Classes" Multiplicity="0..1" />
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Classes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Class_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Students_tbl_Payeh">
+          <End Role="tbl_Payeh" Type="Self.tbl_Payeh" Multiplicity="0..1" />
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Students_tbl_Schools">
+          <End Role="tbl_Schools" Type="Self.tbl_Schools" Multiplicity="0..1" />
+          <End Role="tbl_Students" Type="Self.tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Schools_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Teachers_tbl_Payeh">
+          <End Role="tbl_Payeh" Type="Self.tbl_Payeh" Multiplicity="0..1" />
+          <End Role="tbl_Teachers" Type="Self.tbl_Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Teachers">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Teachers_tbl_Schools">
+          <End Role="tbl_Schools" Type="Self.tbl_Schools" Multiplicity="0..1" />
+          <End Role="tbl_Teachers" Type="Self.tbl_Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Teachers">
+              <PropertyRef Name="Schools_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EditKarnameh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Karnameh_id_FK" Type="bigint" Mode="In" />
+          <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsRespect" Type="bit" Mode="In" />
+          <Parameter Name="Avarage" Type="nvarchar" Mode="In" />
+          <Parameter Name="DateSabt" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsOk" Type="bit" Mode="In" />
+          <Parameter Name="MoavenEjraei_id_FK" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="EditStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Student_id_FK" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FillStudentClasses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Years_id_FK" Type="int" Mode="In" />
+          <Parameter Name="Class_id_FK" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="FillTeachersNoClassWhitOwn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="School_id" Type="bigint" Mode="In" />
+          <Parameter Name="PersonalCode" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="FillTechersNoClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="School_id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="InseertPayeh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+          <Parameter Name="Tosif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertLessons" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Payeh_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertManagers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonalCode" Type="bigint" Mode="In" />
+          <Parameter Name="CodeMelli" Type="nvarchar" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Lname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fname" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="InsertMoavenin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonalCode" Type="bigint" Mode="In" />
+          <Parameter Name="CodeMelli" Type="nvarchar" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Lname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fname" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="InsertSchools" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="bigint" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Manager_id" Type="bigint" Mode="In" />
+          <Parameter Name="Moaven_id" Type="bigint" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertTeachers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonalCode" Type="bigint" Mode="In" />
+          <Parameter Name="CodeMelli" Type="nvarchar" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Lname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fname" Type="nvarchar" Mode="In" />
+          <Parameter Name="Payeh_id_FK" Type="int" Mode="In" />
+          <Parameter Name="Schools_id_FK" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="InsertTosifAmalkard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mark" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="KarnameDBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Classes" EntityType="Self.tbl_Classes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Karnameh" EntityType="Self.tbl_Karnameh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Lessons" EntityType="Self.tbl_Lessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Managers" EntityType="Self.tbl_Managers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Marks" EntityType="Self.tbl_Marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_MoaveninEjraei" EntityType="Self.tbl_MoaveninEjraei" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Payeh" EntityType="Self.tbl_Payeh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Schools" EntityType="Self.tbl_Schools" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_StudentClasses" EntityType="Self.tbl_StudentClasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Students" EntityType="Self.tbl_Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Teachers" EntityType="Self.tbl_Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TosifAmalkard" EntityType="Self.tbl_TosifAmalkard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Years" EntityType="Self.tbl_Years" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="viw_Classes" EntityType="Self.viw_Classes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_Classes].[id] AS [id], 
+[viw_Classes].[Name] AS [Name], 
+[viw_Classes].[Teachers_PersonalCode_FK] AS [Teachers_PersonalCode_FK], 
+[viw_Classes].[School_id_FK] AS [School_id_FK], 
+[viw_Classes].[SchoolsName] AS [SchoolsName], 
+[viw_Classes].[TeachersName] AS [TeachersName], 
+[viw_Classes].[PayehName] AS [PayehName]
+FROM [dbo].[viw_Classes] AS [viw_Classes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_Lessons" EntityType="Self.viw_Lessons" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_Lessons].[id] AS [id], 
+[viw_Lessons].[Name] AS [Name], 
+[viw_Lessons].[Payeh_id_FK] AS [Payeh_id_FK], 
+[viw_Lessons].[PayehName] AS [PayehName], 
+[viw_Lessons].[PayehStatus] AS [PayehStatus]
+FROM [dbo].[viw_Lessons] AS [viw_Lessons]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_Managers_SchoolsLess" EntityType="Self.viw_Managers_SchoolsLess" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_Managers_SchoolsLess].[FullName] AS [FullName], 
+[viw_Managers_SchoolsLess].[PersonalCode] AS [PersonalCode]
+FROM [dbo].[viw_Managers_SchoolsLess] AS [viw_Managers_SchoolsLess]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_MovanenEjraeiSchoolsLess" EntityType="Self.viw_MovanenEjraeiSchoolsLess" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_MovanenEjraeiSchoolsLess].[FullName] AS [FullName], 
+[viw_MovanenEjraeiSchoolsLess].[PersonalCode] AS [PersonalCode]
+FROM [dbo].[viw_MovanenEjraeiSchoolsLess] AS [viw_MovanenEjraeiSchoolsLess]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_Schools" EntityType="Self.viw_Schools" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_Schools].[id] AS [id], 
+[viw_Schools].[Name] AS [Name], 
+[viw_Schools].[Manager_PersonalCode_FK] AS [Manager_PersonalCode_FK], 
+[viw_Schools].[MoavenEjraei_PersonalCode_FK] AS [MoavenEjraei_PersonalCode_FK], 
+[viw_Schools].[MoavenFullName] AS [MoavenFullName], 
+[viw_Schools].[ManagerFullName] AS [ManagerFullName]
+FROM [dbo].[viw_Schools] AS [viw_Schools]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_Teachers" EntityType="Self.viw_Teachers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_Teachers].[PersonalCode] AS [PersonalCode], 
+[viw_Teachers].[CodeMelli] AS [CodeMelli], 
+[viw_Teachers].[Name] AS [Name], 
+[viw_Teachers].[Lname] AS [Lname], 
+[viw_Teachers].[Fname] AS [Fname], 
+[viw_Teachers].[Payeh_id_FK] AS [Payeh_id_FK], 
+[viw_Teachers].[Schools_id_FK] AS [Schools_id_FK], 
+[viw_Teachers].[PayehName] AS [PayehName], 
+[viw_Teachers].[SchoolsName] AS [SchoolsName]
+FROM [dbo].[viw_Teachers] AS [viw_Teachers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viw_TeachersName" EntityType="Self.viw_TeachersName" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[viw_TeachersName].[FullName] AS [FullName], 
+[viw_TeachersName].[PersonalCode] AS [PersonalCode], 
+[viw_TeachersName].[Schools_id_FK] AS [Schools_id_FK]
+FROM [dbo].[viw_TeachersName] AS [viw_TeachersName]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbl_Classes_tbl_Payeh" Association="Self.FK_tbl_Classes_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Classes_tbl_Schools" Association="Self.FK_tbl_Classes_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Classes_tbl_Teachers" Association="Self.FK_tbl_Classes_tbl_Teachers">
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_MoaveninEjraei" Association="Self.FK_tbl_Karnameh_tbl_MoaveninEjraei">
+            <End Role="tbl_MoaveninEjraei" EntitySet="tbl_MoaveninEjraei" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_Students" Association="Self.FK_tbl_Karnameh_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_Years" Association="Self.FK_tbl_Karnameh_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Lessons_tbl_Payeh" Association="Self.FK_tbl_Lessons_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Lessons" EntitySet="tbl_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Karnameh" Association="Self.FK_tbl_Marks_tbl_Karnameh">
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Lessons" Association="Self.FK_tbl_Marks_tbl_Lessons">
+            <End Role="tbl_Lessons" EntitySet="tbl_Lessons" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Students" Association="Self.FK_tbl_Marks_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_TosifAmalkard" Association="Self.FK_tbl_Marks_tbl_TosifAmalkard">
+            <End Role="tbl_TosifAmalkard" EntitySet="tbl_TosifAmalkard" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Years" Association="Self.FK_tbl_Marks_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payeh_tbl_TosifAmalkard" Association="Self.FK_tbl_Payeh_tbl_TosifAmalkard">
+            <End Role="tbl_TosifAmalkard" EntitySet="tbl_TosifAmalkard" />
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Schools_tbl_Managers" Association="Self.FK_tbl_Schools_tbl_Managers">
+            <End Role="tbl_Managers" EntitySet="tbl_Managers" />
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Schools_tbl_MoaveninEjraei" Association="Self.FK_tbl_Schools_tbl_MoaveninEjraei">
+            <End Role="tbl_MoaveninEjraei" EntitySet="tbl_MoaveninEjraei" />
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Classes" Association="Self.FK_tbl_StudentClasses_tbl_Classes">
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Students" Association="Self.FK_tbl_StudentClasses_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Years" Association="Self.FK_tbl_StudentClasses_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Students_tbl_Classes" Association="Self.FK_tbl_Students_tbl_Classes">
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Students_tbl_Payeh" Association="Self.FK_tbl_Students_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Students_tbl_Schools" Association="Self.FK_tbl_Students_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Teachers_tbl_Payeh" Association="Self.FK_tbl_Teachers_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Teachers_tbl_Schools" Association="Self.FK_tbl_Teachers_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KarnameDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KarnameDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="FillTeachersNoClassWhitOwn" ReturnType="Collection(KarnameDBModel.FillTeachersNoClassWhitOwn_Result)">
+            <Parameter Name="School_id" Mode="In" Type="Int64" />
+            <Parameter Name="PersonalCode" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="FillTechersNoClass" ReturnType="Collection(KarnameDBModel.FillTechersNoClass_Result)">
+          <Parameter Name="School_id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(KarnameDBModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(KarnameDBModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="sysdiagrams" EntityType="KarnameDBModel.sysdiagrams" />
+          <EntitySet Name="tbl_Lessons" EntityType="KarnameDBModel.tbl_Lessons" />
+          <EntitySet Name="tbl_StudentClasses" EntityType="KarnameDBModel.tbl_StudentClasses" />
+          <EntitySet Name="tbl_Years" EntityType="KarnameDBModel.tbl_Years" />
+          <EntitySet Name="viw_Lessons" EntityType="KarnameDBModel.viw_Lessons" />
+          <EntitySet Name="viw_TeachersName" EntityType="KarnameDBModel.viw_TeachersName" />
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Years" Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <FunctionImport Name="InseertPayeh">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+            <Parameter Name="Tosif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertLessons">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Payeh_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertManagers">
+            <Parameter Name="PersonalCode" Mode="In" Type="Int64" />
+            <Parameter Name="CodeMelli" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Lname" Mode="In" Type="String" />
+            <Parameter Name="Fname" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Managers" EntityType="KarnameDBModel.tbl_Managers" />
+          <FunctionImport Name="InsertMoavenin">
+            <Parameter Name="PersonalCode" Mode="In" Type="Int64" />
+            <Parameter Name="CodeMelli" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Lname" Mode="In" Type="String" />
+            <Parameter Name="Fname" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_MoaveninEjraei" EntityType="KarnameDBModel.tbl_MoaveninEjraei" />
+          <FunctionImport Name="InsertSchools">
+            <Parameter Name="id" Mode="In" Type="Int64" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Manager_id" Mode="In" Type="Int64" />
+            <Parameter Name="Moaven_id" Mode="In" Type="Int64" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="viw_Schools" EntityType="KarnameDBModel.viw_Schools" />
+          <EntitySet Name="viw_Managers_SchoolsLess" EntityType="KarnameDBModel.viw_Managers_SchoolsLess" />
+          <EntitySet Name="viw_MovanenEjraeiSchoolsLess" EntityType="KarnameDBModel.viw_MovanenEjraeiSchoolsLess" />
+          <EntitySet Name="tbl_Schools" EntityType="KarnameDBModel.tbl_Schools" />
+          <AssociationSet Name="FK_tbl_Schools_tbl_Managers" Association="KarnameDBModel.FK_tbl_Schools_tbl_Managers">
+            <End Role="tbl_Managers" EntitySet="tbl_Managers" />
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Schools_tbl_MoaveninEjraei" Association="KarnameDBModel.FK_tbl_Schools_tbl_MoaveninEjraei">
+            <End Role="tbl_MoaveninEjraei" EntitySet="tbl_MoaveninEjraei" />
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+          </AssociationSet>
+          <FunctionImport Name="InsertTosifAmalkard">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Mark" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_TosifAmalkard" EntityType="KarnameDBModel.tbl_TosifAmalkard" />
+          <FunctionImport Name="InsertTeachers">
+            <Parameter Name="PersonalCode" Mode="In" Type="Int64" />
+            <Parameter Name="CodeMelli" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Lname" Mode="In" Type="String" />
+            <Parameter Name="Fname" Mode="In" Type="String" />
+            <Parameter Name="Payeh_id_FK" Mode="In" Type="Int32" />
+            <Parameter Name="Schools_id_FK" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="viw_Classes" EntityType="KarnameDBModel.viw_Classes" />
+          <EntitySet Name="tbl_Teachers" EntityType="KarnameDBModel.tbl_Teachers" />
+          <EntitySet Name="viw_Teachers" EntityType="KarnameDBModel.viw_Teachers" />
+          <AssociationSet Name="FK_tbl_Teachers_tbl_Schools" Association="KarnameDBModel.FK_tbl_Teachers_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Classes" EntityType="KarnameDBModel.tbl_Classes" />
+          <EntitySet Name="tbl_Payeh" EntityType="KarnameDBModel.tbl_Payeh" />
+          <AssociationSet Name="FK_tbl_Classes_tbl_Payeh" Association="KarnameDBModel.FK_tbl_Classes_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Classes_tbl_Schools" Association="KarnameDBModel.FK_tbl_Classes_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Classes_tbl_Teachers" Association="KarnameDBModel.FK_tbl_Classes_tbl_Teachers">
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Classes" Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Classes">
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Lessons_tbl_Payeh" Association="KarnameDBModel.FK_tbl_Lessons_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Lessons" EntitySet="tbl_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Payeh_tbl_TosifAmalkard" Association="KarnameDBModel.FK_tbl_Payeh_tbl_TosifAmalkard">
+            <End Role="tbl_TosifAmalkard" EntitySet="tbl_TosifAmalkard" />
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Teachers_tbl_Payeh" Association="KarnameDBModel.FK_tbl_Teachers_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Teachers" EntitySet="tbl_Teachers" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Students" EntityType="KarnameDBModel.tbl_Students" />
+          <AssociationSet Name="FK_tbl_Students_tbl_Classes" Association="KarnameDBModel.FK_tbl_Students_tbl_Classes">
+            <End Role="tbl_Classes" EntitySet="tbl_Classes" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Students_tbl_Payeh" Association="KarnameDBModel.FK_tbl_Students_tbl_Payeh">
+            <End Role="tbl_Payeh" EntitySet="tbl_Payeh" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Students_tbl_Schools" Association="KarnameDBModel.FK_tbl_Students_tbl_Schools">
+            <End Role="tbl_Schools" EntitySet="tbl_Schools" />
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_StudentClasses_tbl_Students" Association="KarnameDBModel.FK_tbl_StudentClasses_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_StudentClasses" EntitySet="tbl_StudentClasses" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Marks" EntityType="KarnameDBModel.tbl_Marks" />
+          <AssociationSet Name="FK_tbl_Marks_tbl_Lessons" Association="KarnameDBModel.FK_tbl_Marks_tbl_Lessons">
+            <End Role="tbl_Lessons" EntitySet="tbl_Lessons" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Students" Association="KarnameDBModel.FK_tbl_Marks_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_TosifAmalkard" Association="KarnameDBModel.FK_tbl_Marks_tbl_TosifAmalkard">
+            <End Role="tbl_TosifAmalkard" EntitySet="tbl_TosifAmalkard" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Years" Association="KarnameDBModel.FK_tbl_Marks_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <EntitySet Name="tbl_Karnameh" EntityType="KarnameDBModel.tbl_Karnameh" />
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_MoaveninEjraei" Association="KarnameDBModel.FK_tbl_Karnameh_tbl_MoaveninEjraei">
+            <End Role="tbl_MoaveninEjraei" EntitySet="tbl_MoaveninEjraei" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_Students" Association="KarnameDBModel.FK_tbl_Karnameh_tbl_Students">
+            <End Role="tbl_Students" EntitySet="tbl_Students" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Karnameh_tbl_Years" Association="KarnameDBModel.FK_tbl_Karnameh_tbl_Years">
+            <End Role="tbl_Years" EntitySet="tbl_Years" />
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Marks_tbl_Karnameh" Association="KarnameDBModel.FK_tbl_Marks_tbl_Karnameh">
+            <End Role="tbl_Karnameh" EntitySet="tbl_Karnameh" />
+            <End Role="tbl_Marks" EntitySet="tbl_Marks" />
+          </AssociationSet>
+          <FunctionImport Name="EditStudent">
+          <Parameter Name="Student_id_FK" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FillStudentClasses" ReturnType="Collection(KarnameDBModel.FillStudentClasses_Result)">
+            <Parameter Name="Years_id_FK" Mode="In" Type="Int32" />
+            <Parameter Name="Class_id_FK" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="EditKarnameh">
+            <Parameter Name="Karnameh_id_FK" Mode="In" Type="Int64" />
+            <Parameter Name="Comment" Mode="In" Type="String" />
+            <Parameter Name="IsRespect" Mode="In" Type="Boolean" />
+            <Parameter Name="Avarage" Mode="In" Type="String" />
+            <Parameter Name="DateSabt" Mode="In" Type="String" />
+            <Parameter Name="IsOk" Mode="In" Type="Boolean" />
+            <Parameter Name="MoavenEjraei_id_FK" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Users" EntityType="KarnameDBModel.tbl_Users" />
+          </EntityContainer>
+        <ComplexType Name="FillTeachersNoClassWhitOwn_Result">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="101" />
+          <Property Type="Int64" Name="PersonalCode" Nullable="false" />
+          <Property Type="Int64" Name="Schools_id_FK" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FillTechersNoClass_Result">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="101" />
+          <Property Type="Int64" Name="PersonalCode" Nullable="false" />
+          <Property Type="Int64" Name="Schools_id_FK" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Lessons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <NavigationProperty Name="tbl_Payeh" Relationship="KarnameDBModel.FK_tbl_Lessons_tbl_Payeh" FromRole="tbl_Lessons" ToRole="tbl_Payeh" />
+          <NavigationProperty Name="tbl_Marks" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Lessons" FromRole="tbl_Lessons" ToRole="tbl_Marks" />
+        </EntityType>
+        <EntityType Name="tbl_StudentClasses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id_FK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Class_id_FK" Type="Int64" />
+          <Property Name="Years_id_K" Type="Int32" />
+          <NavigationProperty Name="tbl_Years" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Years" FromRole="tbl_StudentClasses" ToRole="tbl_Years" />
+          <NavigationProperty Name="tbl_Classes" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Classes" FromRole="tbl_StudentClasses" ToRole="tbl_Classes" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Students" FromRole="tbl_StudentClasses" ToRole="tbl_Students" />
+        </EntityType>
+        <EntityType Name="tbl_Years">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Years" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_StudentClasses" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Years" FromRole="tbl_Years" ToRole="tbl_StudentClasses" />
+          <NavigationProperty Name="tbl_Marks" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Years" FromRole="tbl_Years" ToRole="tbl_Marks" />
+          <NavigationProperty Name="tbl_Karnameh" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_Years" FromRole="tbl_Years" ToRole="tbl_Karnameh" />
+        </EntityType>
+        <EntityType Name="viw_Lessons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <Property Name="PayehName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayehStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="viw_TeachersName">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+          <Property Name="Schools_id_FK" Type="Int64" />
+        </EntityType>
+        <Association Name="FK_tbl_StudentClasses_tbl_Years">
+          <End Type="KarnameDBModel.tbl_Years" Role="tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KarnameDBModel.tbl_StudentClasses" Role="tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Years_id_K" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Managers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+          <Property Name="CodeMelli" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbl_Schools" Relationship="KarnameDBModel.FK_tbl_Schools_tbl_Managers" FromRole="tbl_Managers" ToRole="tbl_Schools" />
+        </EntityType>
+        <EntityType Name="tbl_MoaveninEjraei">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+          <Property Name="CodeMelli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BirthDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbl_Schools" Relationship="KarnameDBModel.FK_tbl_Schools_tbl_MoaveninEjraei" FromRole="tbl_MoaveninEjraei" ToRole="tbl_Schools" />
+          <NavigationProperty Name="tbl_Karnameh" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_MoaveninEjraei" FromRole="tbl_MoaveninEjraei" ToRole="tbl_Karnameh" />
+        </EntityType>
+        <EntityType Name="viw_Schools">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manager_PersonalCode_FK" Type="Int64" />
+          <Property Name="MoavenEjraei_PersonalCode_FK" Type="Int64" />
+          <Property Name="MoavenFullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerFullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="viw_Managers_SchoolsLess">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viw_MovanenEjraeiSchoolsLess">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Schools">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manager_PersonalCode_FK" Type="Int64" />
+          <Property Name="MoavenEjraei_PersonalCode_FK" Type="Int64" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Managers" Relationship="KarnameDBModel.FK_tbl_Schools_tbl_Managers" FromRole="tbl_Schools" ToRole="tbl_Managers" />
+          <NavigationProperty Name="tbl_MoaveninEjraei" Relationship="KarnameDBModel.FK_tbl_Schools_tbl_MoaveninEjraei" FromRole="tbl_Schools" ToRole="tbl_MoaveninEjraei" />
+          <NavigationProperty Name="tbl_Teachers" Relationship="KarnameDBModel.FK_tbl_Teachers_tbl_Schools" FromRole="tbl_Schools" ToRole="tbl_Teachers" />
+          <NavigationProperty Name="tbl_Classes" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Schools" FromRole="tbl_Schools" ToRole="tbl_Classes" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Schools" FromRole="tbl_Schools" ToRole="tbl_Students" />
+        </EntityType>
+        <Association Name="FK_tbl_Schools_tbl_Managers">
+          <End Type="KarnameDBModel.tbl_Managers" Role="tbl_Managers" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Schools" Role="tbl_Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Managers">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Schools">
+              <PropertyRef Name="Manager_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Schools_tbl_MoaveninEjraei">
+          <End Type="KarnameDBModel.tbl_MoaveninEjraei" Role="tbl_MoaveninEjraei" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Schools" Role="tbl_Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MoaveninEjraei">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Schools">
+              <PropertyRef Name="MoavenEjraei_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_TosifAmalkard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaxMark" Type="Int32" />
+          <NavigationProperty Name="tbl_Payeh" Relationship="KarnameDBModel.FK_tbl_Payeh_tbl_TosifAmalkard" FromRole="tbl_TosifAmalkard" ToRole="tbl_Payeh" />
+          <NavigationProperty Name="tbl_Marks" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_TosifAmalkard" FromRole="tbl_TosifAmalkard" ToRole="tbl_Marks" />
+        </EntityType>
+        <EntityType Name="viw_Classes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Teachers_PersonalCode_FK" Type="Int64" />
+          <Property Name="School_id_FK" Type="Int64" />
+          <Property Name="SchoolsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeachersName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="PayehName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Teachers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+          <Property Name="CodeMelli" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <Property Name="Schools_id_FK" Type="Int64" />
+          <NavigationProperty Name="tbl_Schools" Relationship="KarnameDBModel.FK_tbl_Teachers_tbl_Schools" FromRole="tbl_Teachers" ToRole="tbl_Schools" />
+          <NavigationProperty Name="tbl_Classes" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Teachers" FromRole="tbl_Teachers" ToRole="tbl_Classes" />
+          <NavigationProperty Name="tbl_Payeh" Relationship="KarnameDBModel.FK_tbl_Teachers_tbl_Payeh" FromRole="tbl_Teachers" ToRole="tbl_Payeh" />
+        </EntityType>
+        <EntityType Name="viw_Teachers">
+          <Key>
+            <PropertyRef Name="PersonalCode" />
+          </Key>
+          <Property Name="PersonalCode" Type="Int64" Nullable="false" />
+          <Property Name="CodeMelli" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <Property Name="Schools_id_FK" Type="Int64" />
+          <Property Name="PayehName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tbl_Teachers_tbl_Schools">
+          <End Type="KarnameDBModel.tbl_Schools" Role="tbl_Schools" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Teachers" Role="tbl_Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Teachers">
+              <PropertyRef Name="Schools_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Classes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Teachers_PersonalCode_FK" Type="Int64" />
+          <Property Name="School_id_FK" Type="Int64" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <NavigationProperty Name="tbl_Payeh" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Payeh" FromRole="tbl_Classes" ToRole="tbl_Payeh" />
+          <NavigationProperty Name="tbl_Schools" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Schools" FromRole="tbl_Classes" ToRole="tbl_Schools" />
+          <NavigationProperty Name="tbl_Teachers" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Teachers" FromRole="tbl_Classes" ToRole="tbl_Teachers" />
+          <NavigationProperty Name="tbl_StudentClasses" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Classes" FromRole="tbl_Classes" ToRole="tbl_StudentClasses" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Classes" FromRole="tbl_Classes" ToRole="tbl_Students" />
+        </EntityType>
+        <EntityType Name="tbl_Payeh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="TosifAmalkard_id_FK" Type="Int32" />
+          <NavigationProperty Name="tbl_Classes" Relationship="KarnameDBModel.FK_tbl_Classes_tbl_Payeh" FromRole="tbl_Payeh" ToRole="tbl_Classes" />
+          <NavigationProperty Name="tbl_Lessons" Relationship="KarnameDBModel.FK_tbl_Lessons_tbl_Payeh" FromRole="tbl_Payeh" ToRole="tbl_Lessons" />
+          <NavigationProperty Name="tbl_TosifAmalkard" Relationship="KarnameDBModel.FK_tbl_Payeh_tbl_TosifAmalkard" FromRole="tbl_Payeh" ToRole="tbl_TosifAmalkard" />
+          <NavigationProperty Name="tbl_Teachers" Relationship="KarnameDBModel.FK_tbl_Teachers_tbl_Payeh" FromRole="tbl_Payeh" ToRole="tbl_Teachers" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Payeh" FromRole="tbl_Payeh" ToRole="tbl_Students" />
+        </EntityType>
+        <Association Name="FK_tbl_Classes_tbl_Payeh">
+          <End Type="KarnameDBModel.tbl_Payeh" Role="tbl_Payeh" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Classes" Role="tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Classes_tbl_Schools">
+          <End Type="KarnameDBModel.tbl_Schools" Role="tbl_Schools" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Classes" Role="tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="School_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Classes_tbl_Teachers">
+          <End Type="KarnameDBModel.tbl_Teachers" Role="tbl_Teachers" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Classes" Role="tbl_Classes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Teachers">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Classes">
+              <PropertyRef Name="Teachers_PersonalCode_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_StudentClasses_tbl_Classes">
+          <End Type="KarnameDBModel.tbl_Classes" Role="tbl_Classes" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_StudentClasses" Role="tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Classes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Class_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Lessons_tbl_Payeh">
+          <End Type="KarnameDBModel.tbl_Payeh" Role="tbl_Payeh" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Lessons" Role="tbl_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Lessons">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Payeh_tbl_TosifAmalkard">
+          <End Type="KarnameDBModel.tbl_TosifAmalkard" Role="tbl_TosifAmalkard" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Payeh" Role="tbl_Payeh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TosifAmalkard">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Payeh">
+              <PropertyRef Name="TosifAmalkard_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Teachers_tbl_Payeh">
+          <End Type="KarnameDBModel.tbl_Payeh" Role="tbl_Payeh" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Teachers" Role="tbl_Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Teachers">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Students">
+          <Key>
+            <PropertyRef Name="CodeMelli" />
+          </Key>
+          <Property Name="CodeMelli" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Class_id_FK" Type="Int64" />
+          <Property Name="Schools_id_FK" Type="Int64" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Classes" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Classes" FromRole="tbl_Students" ToRole="tbl_Classes" />
+          <NavigationProperty Name="tbl_Payeh" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Payeh" FromRole="tbl_Students" ToRole="tbl_Payeh" />
+          <NavigationProperty Name="tbl_Schools" Relationship="KarnameDBModel.FK_tbl_Students_tbl_Schools" FromRole="tbl_Students" ToRole="tbl_Schools" />
+          <NavigationProperty Name="tbl_StudentClasses" Relationship="KarnameDBModel.FK_tbl_StudentClasses_tbl_Students" FromRole="tbl_Students" ToRole="tbl_StudentClasses" />
+          <NavigationProperty Name="tbl_Marks" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Students" FromRole="tbl_Students" ToRole="tbl_Marks" />
+          <NavigationProperty Name="tbl_Karnameh" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_Students" FromRole="tbl_Students" ToRole="tbl_Karnameh" />
+        </EntityType>
+        <Association Name="FK_tbl_Students_tbl_Classes">
+          <End Type="KarnameDBModel.tbl_Classes" Role="tbl_Classes" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Classes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Class_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Students_tbl_Payeh">
+          <End Type="KarnameDBModel.tbl_Payeh" Role="tbl_Payeh" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Payeh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Payeh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Students_tbl_Schools">
+          <End Type="KarnameDBModel.tbl_Schools" Role="tbl_Schools" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Schools">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Students">
+              <PropertyRef Name="Schools_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_StudentClasses_tbl_Students">
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_StudentClasses" Role="tbl_StudentClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_StudentClasses">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Marks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payeh_id_FK" Type="Int32" />
+          <Property Name="Student_id_FK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Lesson_id_FK" Type="Int64" />
+          <Property Name="Years_id_FK" Type="Int32" />
+          <Property Name="Mark" Type="Double" />
+          <Property Name="TosifAmalkard_id_FK" Type="Int32" />
+          <Property Name="Karnameh_id_FK" Type="Int64" />
+          <Property Name="Nobat" Type="Int32" />
+          <NavigationProperty Name="tbl_Lessons" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Lessons" FromRole="tbl_Marks" ToRole="tbl_Lessons" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Students" FromRole="tbl_Marks" ToRole="tbl_Students" />
+          <NavigationProperty Name="tbl_TosifAmalkard" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_TosifAmalkard" FromRole="tbl_Marks" ToRole="tbl_TosifAmalkard" />
+          <NavigationProperty Name="tbl_Years" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Years" FromRole="tbl_Marks" ToRole="tbl_Years" />
+          <NavigationProperty Name="tbl_Karnameh" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Karnameh" FromRole="tbl_Marks" ToRole="tbl_Karnameh" />
+        </EntityType>
+        <Association Name="FK_tbl_Marks_tbl_Lessons">
+          <End Type="KarnameDBModel.tbl_Lessons" Role="tbl_Lessons" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Marks" Role="tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Lessons">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Lesson_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Students">
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Marks" Role="tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_TosifAmalkard">
+          <End Type="KarnameDBModel.tbl_TosifAmalkard" Role="tbl_TosifAmalkard" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Marks" Role="tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TosifAmalkard">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="TosifAmalkard_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Years">
+          <End Type="KarnameDBModel.tbl_Years" Role="tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KarnameDBModel.tbl_Marks" Role="tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Years_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_Karnameh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id_FK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Avarage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Years_id_FK" Type="Int32" />
+          <Property Name="MoavenEjraei_id_FK" Type="Int64" />
+          <Property Name="DateSabt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsRespect" Type="Boolean" />
+          <Property Name="Nobat" Type="Int32" />
+          <Property Name="IsOk" Type="Boolean" />
+          <NavigationProperty Name="tbl_MoaveninEjraei" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_MoaveninEjraei" FromRole="tbl_Karnameh" ToRole="tbl_MoaveninEjraei" />
+          <NavigationProperty Name="tbl_Students" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_Students" FromRole="tbl_Karnameh" ToRole="tbl_Students" />
+          <NavigationProperty Name="tbl_Years" Relationship="KarnameDBModel.FK_tbl_Karnameh_tbl_Years" FromRole="tbl_Karnameh" ToRole="tbl_Years" />
+          <NavigationProperty Name="tbl_Marks" Relationship="KarnameDBModel.FK_tbl_Marks_tbl_Karnameh" FromRole="tbl_Karnameh" ToRole="tbl_Marks" />
+        </EntityType>
+        <Association Name="FK_tbl_Karnameh_tbl_MoaveninEjraei">
+          <End Type="KarnameDBModel.tbl_MoaveninEjraei" Role="tbl_MoaveninEjraei" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Karnameh" Role="tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_MoaveninEjraei">
+              <PropertyRef Name="PersonalCode" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="MoavenEjraei_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Karnameh_tbl_Students">
+          <End Type="KarnameDBModel.tbl_Students" Role="tbl_Students" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Karnameh" Role="tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Students">
+              <PropertyRef Name="CodeMelli" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="Student_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Karnameh_tbl_Years">
+          <End Type="KarnameDBModel.tbl_Years" Role="tbl_Years" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KarnameDBModel.tbl_Karnameh" Role="tbl_Karnameh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Years">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Karnameh">
+              <PropertyRef Name="Years_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Marks_tbl_Karnameh">
+          <End Type="KarnameDBModel.tbl_Karnameh" Role="tbl_Karnameh" Multiplicity="0..1" />
+          <End Type="KarnameDBModel.tbl_Marks" Role="tbl_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Karnameh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Marks">
+              <PropertyRef Name="Karnameh_id_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FillStudentClasses_Result">
+          <Property Type="String" Name="CodeMelli" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Lname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Fname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BirthDate" Nullable="true" MaxLength="10" />
+          <Property Type="Int64" Name="Class_id_FK" Nullable="true" />
+          <Property Type="Int64" Name="Schools_id_FK" Nullable="true" />
+          <Property Type="Int32" Name="Payeh_id_FK" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KarnameDBModelStoreContainer" CdmEntityContainer="KarnameDBEntities">
+          <FunctionImportMapping FunctionImportName="FillTeachersNoClassWhitOwn" FunctionName="KarnameDBModel.Store.FillTeachersNoClassWhitOwn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KarnameDBModel.FillTeachersNoClassWhitOwn_Result">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FillTechersNoClass" FunctionName="KarnameDBModel.Store.FillTechersNoClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KarnameDBModel.FillTechersNoClass_Result">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="KarnameDBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="KarnameDBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="KarnameDBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="KarnameDBModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KarnameDBModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="KarnameDBModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KarnameDBModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="KarnameDBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="KarnameDBModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KarnameDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Lessons">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Lessons">
+              <MappingFragment StoreEntitySet="tbl_Lessons">
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_StudentClasses">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_StudentClasses">
+              <MappingFragment StoreEntitySet="tbl_StudentClasses">
+                <ScalarProperty Name="Years_id_K" ColumnName="Years_id_K" />
+                <ScalarProperty Name="Class_id_FK" ColumnName="Class_id_FK" />
+                <ScalarProperty Name="Student_id_FK" ColumnName="Student_id_FK" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Years">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Years">
+              <MappingFragment StoreEntitySet="tbl_Years">
+                <ScalarProperty Name="Years" ColumnName="Years" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viw_Lessons">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_Lessons">
+              <MappingFragment StoreEntitySet="viw_Lessons">
+                <ScalarProperty Name="PayehStatus" ColumnName="PayehStatus" />
+                <ScalarProperty Name="PayehName" ColumnName="PayehName" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viw_TeachersName">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_TeachersName">
+              <MappingFragment StoreEntitySet="viw_TeachersName">
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InseertPayeh" FunctionName="KarnameDBModel.Store.InseertPayeh" />
+          <FunctionImportMapping FunctionImportName="InsertLessons" FunctionName="KarnameDBModel.Store.InsertLessons" />
+          <FunctionImportMapping FunctionImportName="InsertManagers" FunctionName="KarnameDBModel.Store.InsertManagers" />
+          <EntitySetMapping Name="tbl_Managers">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Managers">
+              <MappingFragment StoreEntitySet="tbl_Managers">
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertMoavenin" FunctionName="KarnameDBModel.Store.InsertMoavenin" />
+          <EntitySetMapping Name="tbl_MoaveninEjraei">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_MoaveninEjraei">
+              <MappingFragment StoreEntitySet="tbl_MoaveninEjraei">
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertSchools" FunctionName="KarnameDBModel.Store.InsertSchools" />
+          <EntitySetMapping Name="viw_Schools">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_Schools">
+              <MappingFragment StoreEntitySet="viw_Schools">
+                <ScalarProperty Name="ManagerFullName" ColumnName="ManagerFullName" />
+                <ScalarProperty Name="MoavenFullName" ColumnName="MoavenFullName" />
+                <ScalarProperty Name="MoavenEjraei_PersonalCode_FK" ColumnName="MoavenEjraei_PersonalCode_FK" />
+                <ScalarProperty Name="Manager_PersonalCode_FK" ColumnName="Manager_PersonalCode_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viw_Managers_SchoolsLess">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_Managers_SchoolsLess">
+              <MappingFragment StoreEntitySet="viw_Managers_SchoolsLess">
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viw_MovanenEjraeiSchoolsLess">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_MovanenEjraeiSchoolsLess">
+              <MappingFragment StoreEntitySet="viw_MovanenEjraeiSchoolsLess">
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Schools">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Schools">
+              <MappingFragment StoreEntitySet="tbl_Schools">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MoavenEjraei_PersonalCode_FK" ColumnName="MoavenEjraei_PersonalCode_FK" />
+                <ScalarProperty Name="Manager_PersonalCode_FK" ColumnName="Manager_PersonalCode_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertTosifAmalkard" FunctionName="KarnameDBModel.Store.InsertTosifAmalkard" />
+          <EntitySetMapping Name="tbl_TosifAmalkard">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_TosifAmalkard">
+              <MappingFragment StoreEntitySet="tbl_TosifAmalkard">
+                <ScalarProperty Name="MaxMark" ColumnName="MaxMark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertTeachers" FunctionName="KarnameDBModel.Store.InsertTeachers" />
+          <EntitySetMapping Name="viw_Classes">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_Classes">
+              <MappingFragment StoreEntitySet="viw_Classes">
+                <ScalarProperty Name="PayehName" ColumnName="PayehName" />
+                <ScalarProperty Name="TeachersName" ColumnName="TeachersName" />
+                <ScalarProperty Name="SchoolsName" ColumnName="SchoolsName" />
+                <ScalarProperty Name="School_id_FK" ColumnName="School_id_FK" />
+                <ScalarProperty Name="Teachers_PersonalCode_FK" ColumnName="Teachers_PersonalCode_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Teachers">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Teachers">
+              <MappingFragment StoreEntitySet="tbl_Teachers">
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viw_Teachers">
+            <EntityTypeMapping TypeName="KarnameDBModel.viw_Teachers">
+              <MappingFragment StoreEntitySet="viw_Teachers">
+                <ScalarProperty Name="SchoolsName" ColumnName="SchoolsName" />
+                <ScalarProperty Name="PayehName" ColumnName="PayehName" />
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Classes">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Classes">
+              <MappingFragment StoreEntitySet="tbl_Classes">
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="School_id_FK" ColumnName="School_id_FK" />
+                <ScalarProperty Name="Teachers_PersonalCode_FK" ColumnName="Teachers_PersonalCode_FK" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Payeh">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Payeh">
+              <MappingFragment StoreEntitySet="tbl_Payeh">
+                <ScalarProperty Name="TosifAmalkard_id_FK" ColumnName="TosifAmalkard_id_FK" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Students">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Students">
+              <MappingFragment StoreEntitySet="tbl_Students">
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+                <ScalarProperty Name="Class_id_FK" ColumnName="Class_id_FK" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Marks">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Marks">
+              <MappingFragment StoreEntitySet="tbl_Marks">
+                <ScalarProperty Name="Nobat" ColumnName="Nobat" />
+                <ScalarProperty Name="Karnameh_id_FK" ColumnName="Karnameh_id_FK" />
+                <ScalarProperty Name="TosifAmalkard_id_FK" ColumnName="TosifAmalkard_id_FK" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="Years_id_FK" ColumnName="Years_id_FK" />
+                <ScalarProperty Name="Lesson_id_FK" ColumnName="Lesson_id_FK" />
+                <ScalarProperty Name="Student_id_FK" ColumnName="Student_id_FK" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Karnameh">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Karnameh">
+              <MappingFragment StoreEntitySet="tbl_Karnameh">
+                <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+                <ScalarProperty Name="Nobat" ColumnName="Nobat" />
+                <ScalarProperty Name="IsRespect" ColumnName="IsRespect" />
+                <ScalarProperty Name="DateSabt" ColumnName="DateSabt" />
+                <ScalarProperty Name="MoavenEjraei_id_FK" ColumnName="MoavenEjraei_id_FK" />
+                <ScalarProperty Name="Years_id_FK" ColumnName="Years_id_FK" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Avarage" ColumnName="Avarage" />
+                <ScalarProperty Name="Student_id_FK" ColumnName="Student_id_FK" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EditStudent" FunctionName="KarnameDBModel.Store.EditStudent" />
+          <FunctionImportMapping FunctionImportName="FillStudentClasses" FunctionName="KarnameDBModel.Store.FillStudentClasses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KarnameDBModel.FillStudentClasses_Result">
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Class_id_FK" ColumnName="Class_id_FK" />
+                <ScalarProperty Name="Schools_id_FK" ColumnName="Schools_id_FK" />
+                <ScalarProperty Name="Payeh_id_FK" ColumnName="Payeh_id_FK" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EditKarnameh" FunctionName="KarnameDBModel.Store.EditKarnameh" />
+          <EntitySetMapping Name="tbl_Users">
+            <EntityTypeMapping TypeName="KarnameDBModel.tbl_Users">
+              <MappingFragment StoreEntitySet="tbl_Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
